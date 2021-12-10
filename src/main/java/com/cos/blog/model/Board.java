@@ -14,7 +14,16 @@ import javax.persistence.ManyToOne;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
 
-@Entity 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor 
+@AllArgsConstructor
+@Builder 
+@Entity
 public class Board {
 	
 	@Id 
@@ -32,7 +41,7 @@ public class Board {
 	
 	@ManyToOne // Many = Board, One = User
 	@JoinColumn(name="userId")
-	private User user; //DB는 오브젝트를 저장할 수 없다. FK, 자바는 오브젝트를 저장할 수 있다.
+	private User user; //DB는 오work브젝트를 저장할 수 없다. FK, 자바는 오브젝트를 저장할 수 있다.
 	
 	@CreationTimestamp
 	private Timestamp createDate;
